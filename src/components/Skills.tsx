@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  Code, Layout, Smartphone, Server, Database, Globe,
+  Code, Layout, Server, Database, Globe,
   GitBranch, Terminal, Figma, Cpu, MessageSquare,
-  Video, Mic, Image as ImageIcon, Box, Layers,
-  Zap, PenTool, Command, Cloud, Target, FastForward, Lightbulb
+  Video, Mic, Image as ImageIcon, Box,
+  Zap, PenTool, Cloud, Target, FastForward, Lightbulb
 } from 'lucide-react';
 
 const Skills: React.FC = () => {
