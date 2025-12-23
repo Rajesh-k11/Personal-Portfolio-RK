@@ -92,7 +92,7 @@ const About: React.FC = () => {
           {/* Profile Image */}
           <div className="about-image">
             <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] mx-auto rounded-2xl overflow-hidden border-4 border-primary/20 hover:border-primary/40 transition-all duration-300 relative">
+              <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[480px] lg:h-[580px] mx-auto rounded-2xl overflow-hidden border-4 border-primary/20 hover:border-primary/40 transition-all duration-300 relative shadow-2xl">
                 <img
                   src={profilePhoto}
                   alt="Rajesh K"
