@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --color-primary: #00f260;
+  --color-secondary: #0575e6;
+  --color-dark: #ffffff;
+  --color-dark-light: #f3f4f6;
+  --color-dark-lighter: #e5e7eb;
+  --color-text-main: #111827;
+  --color-text-muted: #4b5563;
+}
+
+[data-theme='dark'] {
+  --color-primary: #00f260;
+  --color-secondary: #0575e6;
+  --color-dark: #0a0a0a;
+  --color-dark-light: #1a1a1a;
+  --color-dark-lighter: #2a2a2a;
+  --color-text-main: #ffffff;
+  --color-text-muted: #9ca3af;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-dark);
+  color: var(--color-text-main);
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  text-shadow: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  border-color: var(--color-secondary);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(to right, #00f260, #0575e6); /* Green to Blue gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Wave emoji animation */
+.wave-emoji-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transform-origin: 70% 70%;
+}
+
+.wave-emoji {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  will-change: transform;
+}
+
+/* Typing effect styles */
+.typing-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  text-align: left;
+}
+
+.typing-cursor {
+  font-weight: 100;
+  font-size: 1em;
+  line-height: 1;
+  color: var(--color-primary);
+  display: inline-block;
+  width: 3px;
+  margin-left: 3px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Loading animation */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* Enhanced animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .typing-container {
+    min-width: 250px;
+  }
+  
+  .typing-cursor {
+    font-size: 0.9em;
+    width: 2px;
+  }
+  
+  .wave-emoji {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .typing-container {
+    min-width: 350px;
+  }
+  
+  .typing-cursor {
+    font-size: 0.95em;
+    width: 2.5px;
+  }
+  
+  .wave-emoji {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .typing-container {
+    min-width: 450px;
+  }
+  
+  .typing-cursor {
+    font-size: 1em;
+    width: 3px;
+  }
+  
+  .wave-emoji {
+    font-size: 5rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .wave-emoji,
+  .typing-cursor {
+    animation: none !important;
+    transform: none !important;
+  }
+}
