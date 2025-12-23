@@ -251,8 +251,8 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-dark-light border border-dark-lighter rounded-lg text-text-main placeholder-text-muted focus:border-primary focus:outline-none transition-colors duration-300 resize-none"
+                  rows={4} // Reduced default rows
+                  className="w-full px-4 py-3 bg-dark-light border border-dark-lighter rounded-lg text-text-main placeholder-text-muted focus:border-primary focus:outline-none transition-colors duration-300 resize-none md:h-32" // Added specific height classes
                   placeholder="Tell me about your idea, opportunity, question, or anything you'd like to discuss..."
                 />
               </div>

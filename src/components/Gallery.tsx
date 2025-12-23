@@ -205,14 +205,14 @@ const Gallery: React.FC = () => {
                     </button>
 
                     <div
-                        className="max-w-5xl w-full bg-dark-light rounded-2xl overflow-hidden shadow-2xl border border-dark-lighter flex flex-col md:flex-row max-h-[90vh]"
+                        className="max-w-5xl w-full bg-dark-light rounded-2xl overflow-hidden shadow-2xl border border-dark-lighter flex flex-col md:flex-row max-h-[90vh] md:h-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="md:w-2/3 h-[50vh] md:h-auto bg-black flex items-center justify-center">
+                        <div className="md:w-2/3 bg-black flex items-center justify-center p-4 md:p-0 h-[40vh] md:h-auto">
                             <img
                                 src={selectedImage.src}
                                 alt={selectedImage.title}
-                                className="max-w-full max-h-full object-contain"
+                                className="max-w-full max-h-[50vh] md:max-h-full object-contain"
                             />
                         </div>
                         <div className="md:w-1/3 p-8 flex flex-col justify-center bg-dark-light">
@@ -237,8 +237,9 @@ const Gallery: React.FC = () => {
                     </div>
                 </div>,
                 document.body
-            )}
-        </section>
+            )
+            }
+        </section >
     );
 };
 

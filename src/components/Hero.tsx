@@ -102,8 +102,8 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-dark opacity-50"></div>
 
       {/* Main Hero Content */}
-      <div className="container mx-auto px-6 z-10 flex items-center justify-center min-h-screen">
-        <div className="grid lg:grid-cols-2 gap-12 items-center w-full max-w-7xl mx-auto py-20">
+      <div className="container mx-auto px-6 z-10 flex items-center justify-center min-h-screen pt-28 md:pt-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full max-w-7xl mx-auto pb-20">
 
           {/* Left Column: Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
