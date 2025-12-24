@@ -54,7 +54,7 @@ const galleryItems: GalleryItem[] = [
         category: 'Tech Events',
         title: 'GDG DevFest',
         description: 'Planning and organizing GDG DevFest Salem.',
-        date: 'Nov 2024',
+        date: 'Nov 2025',
         location: 'Salem'
     },
     {
