@@ -72,8 +72,6 @@ const Contact: React.FC = () => {
 
       setIsSubmitting(false);
       setSubmitStatus('success');
-      setIsSubmitting(false);
-      setSubmitStatus('success');
       setFormData({ name: '', email: '', title: '', message: '' });
 
       // Reset status after 3 seconds
@@ -114,27 +112,27 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="contact-section py-20 bg-dark">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    <section id="contact" className="contact-section py-12 sm:py-16 md:py-20 bg-dark">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-text-muted text-base sm:text-lg max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="contact-content">
-            <h3 className="text-2xl font-bold text-text-main mb-8">Let's Connect</h3>
-            <p className="text-text-muted mb-8 leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-bold text-text-main mb-6 sm:mb-8">Let's Connect</h3>
+            <p className="text-text-muted mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
               I’m open to discussions around projects, internships, collaborations, events, or general tech conversations. Whether you’re reaching out with an idea, an opportunity, or a quick question, feel free to drop a message.
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-6 mb-8">
+            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
@@ -179,8 +177,8 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           < div className="contact-form" >
-            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-text-muted mb-2">
                     Name *
@@ -229,7 +227,7 @@ const Contact: React.FC = () => {
                     <option value="" disabled>Select a subject</option>
                     <option value="Project collaboration">Project collaboration</option>
                     <option value="Internship / job opportunity">Internship / job opportunity</option>
-                    <option value="Internship / job opportunity">Freelance opportunity / Custom work</option>
+                    <option value="Freelance opportunity / Custom work">Freelance opportunity / Custom work</option>
                     <option value="Event / speaker invite">Event / speaker invite</option>
                     <option value="General inquiry">General inquiry</option>
                   </select>
@@ -299,8 +297,8 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-dark-lighter text-center">
-          <p className="text-text-muted">
+        <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-dark-lighter text-center">
+          <p className="text-text-muted text-sm sm:text-base">
             © 2025 Rajesh K. Built with ❤️ using React, GSAP, and Tailwind CSS.
           </p>
         </div>

@@ -153,24 +153,24 @@ const Projects: React.FC = () => {
   );
 
   return (
-    <section id="projects" className="projects-container py-20 bg-dark-light relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    <section id="projects" className="projects-container py-12 sm:py-16 md:py-20 bg-dark-light relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-text-muted text-base sm:text-lg max-w-2xl mx-auto">
             A showcase of my recent work and creative solutions
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto space-y-16">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
           {/* Major Projects */}
           <div>
-            <h3 className="text-2xl font-bold text-text-main mb-8 border-l-4 border-primary pl-4">
-              Major Projects <span className="text-text-muted text-base font-normal ml-2">(High impact, complex, long-term)</span>
+            <h3 className="text-xl sm:text-2xl font-bold text-text-main mb-6 sm:mb-8 border-l-4 border-primary pl-4">
+              Major Projects <span className="text-text-muted text-sm sm:text-base font-normal ml-2">(High impact, complex, long-term)</span>
             </h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
               {majorProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -179,10 +179,10 @@ const Projects: React.FC = () => {
 
           {/* Web Development Projects */}
           <div>
-            <h3 className="text-2xl font-bold text-text-main mb-8 border-l-4 border-secondary pl-4">
-              Web Development Projects <span className="text-text-muted text-base font-normal ml-2">(Client work + real deployment)</span>
+            <h3 className="text-xl sm:text-2xl font-bold text-text-main mb-6 sm:mb-8 border-l-4 border-secondary pl-4">
+              Web Development Projects <span className="text-text-muted text-sm sm:text-base font-normal ml-2">(Client work + real deployment)</span>
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {webProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -191,10 +191,10 @@ const Projects: React.FC = () => {
 
           {/* Personal Branding Project */}
           <div>
-            <h3 className="text-2xl font-bold text-text-main mb-8 border-l-4 border-purple-500 pl-4">
-              Personal Branding Project <span className="text-text-muted text-base font-normal ml-2">(Showcases you)</span>
+            <h3 className="text-xl sm:text-2xl font-bold text-text-main mb-6 sm:mb-8 border-l-4 border-purple-500 pl-4">
+              Personal Branding Project <span className="text-text-muted text-sm sm:text-base font-normal ml-2">(Showcases you)</span>
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {personalProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -216,7 +216,7 @@ const Projects: React.FC = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-64 object-cover"
+                        className="w-full h-48 sm:h-64 object-cover"
                       />
                       <button
                         onClick={() => setSelectedProject(null)}
@@ -225,9 +225,9 @@ const Projects: React.FC = () => {
                         ×
                       </button>
                     </div>
-                    <div className="p-8">
-                      <h3 className="text-3xl font-bold text-text-main mb-4">{project.title}</h3>
-                      <p className="text-text-muted mb-6">{project.description}</p>
+                    <div className="p-5 sm:p-8">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-text-main mb-3 sm:mb-4">{project.title}</h3>
+                      <p className="text-text-muted mb-4 sm:mb-6 text-sm sm:text-base">{project.description}</p>
 
                       <div className="mb-6">
                         <h4 className="text-lg font-semibold text-primary mb-3">Technologies Used</h4>
@@ -243,7 +243,7 @@ const Projects: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="flex gap-4">
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <a
                           href={project.liveUrl}
                           target="_blank"

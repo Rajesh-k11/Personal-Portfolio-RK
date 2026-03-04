@@ -119,31 +119,31 @@ const Gallery: React.FC = () => {
     }, [activeCategory]);
 
     return (
-        <section id="gallery" className="gallery-section py-20 bg-dark relative overflow-hidden">
+        <section id="gallery" className="gallery-section py-12 sm:py-16 md:py-20 bg-dark relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
                 <div className="absolute bottom-[20%] left-[10%] w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px]" />
             </div>
 
-            <div className="container mx-auto px-6 relative z-10" ref={containerRef}>
+            <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={containerRef}>
                 {/* Header */}
-                <div className="gallery-header text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <div className="gallery-header text-center mb-10 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                         Moments & <span className="gradient-text">Memories</span>
                     </h2>
-                    <p className="text-text-muted text-lg max-w-2xl mx-auto">
+                    <p className="text-text-muted text-base sm:text-lg max-w-2xl mx-auto">
                         A glimpse into my journey through events, community building, and teamwork.
                     </p>
                 </div>
 
                 {/* Filter Buttons */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
                     {categories.map((category) => (
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`px-6 py-2 rounded-full border transition-all duration-300 ${activeCategory === category
+                            className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border transition-all duration-300 text-sm sm:text-base ${activeCategory === category
                                 ? 'bg-primary text-dark border-primary font-semibold'
                                 : 'bg-transparent text-text-muted border-dark-lighter hover:border-primary hover:text-primary'
                                 }`}
@@ -154,11 +154,11 @@ const Gallery: React.FC = () => {
                 </div>
 
                 {/* Gallery Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                     {filteredItems.map((item) => (
                         <div
                             key={item.id}
-                            className="gallery-item group relative rounded-xl overflow-hidden cursor-pointer h-72"
+                            className="gallery-item group relative rounded-xl overflow-hidden cursor-pointer h-52 sm:h-64 md:h-72"
                             onClick={() => setSelectedImage(item)}
                         >
                             <img
@@ -205,17 +205,17 @@ const Gallery: React.FC = () => {
                     </button>
 
                     <div
-                        className="max-w-5xl w-full bg-dark-light rounded-2xl overflow-hidden shadow-2xl border border-dark-lighter flex flex-col md:flex-row max-h-[90vh] md:h-auto"
+                        className="max-w-5xl w-full bg-dark-light rounded-2xl overflow-hidden shadow-2xl border border-dark-lighter flex flex-col md:flex-row max-h-[90vh]"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="md:w-2/3 bg-black flex items-center justify-center p-4 md:p-0 h-[40vh] md:h-auto">
+                        <div className="md:w-2/3 bg-black flex items-center justify-center p-2 sm:p-4 md:p-0 h-[35vh] sm:h-[40vh] md:h-auto">
                             <img
                                 src={selectedImage.src}
                                 alt={selectedImage.title}
-                                className="max-w-full max-h-[50vh] md:max-h-full object-contain"
+                                className="max-w-full max-h-[35vh] sm:max-h-[50vh] md:max-h-full object-contain"
                             />
                         </div>
-                        <div className="md:w-1/3 p-8 flex flex-col justify-center bg-dark-light">
+                        <div className="md:w-1/3 p-4 sm:p-6 md:p-8 flex flex-col justify-center bg-dark-light overflow-y-auto">
                             <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4 w-fit">
                                 {selectedImage.category}
                             </span>

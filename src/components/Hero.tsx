@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Download, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { gsap } from 'gsap';
-import resumePdf from '../assets/RAJESH K 1 page Resume.pdf';
+import resumePdf from '../assets/Resume - Rajesh.pdf';
 import profileImage from '../assets/profile 1.png';
 
 const Hero: React.FC = () => {
@@ -102,25 +102,25 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-dark opacity-50"></div>
 
       {/* Main Hero Content */}
-      <div className="container mx-auto px-6 z-10 flex items-center justify-center min-h-screen pt-28 md:pt-20">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full max-w-7xl mx-auto pb-20">
+      <div className="container mx-auto px-4 sm:px-6 z-10 flex items-center justify-center min-h-screen pt-24 sm:pt-28 md:pt-20">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center w-full max-w-7xl mx-auto pb-12 sm:pb-20">
 
           {/* Left Column: Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Title Section */}
             <div className="hero-title mb-8 space-y-4">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-light text-text-muted">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-text-muted">
                 Hi, I'm
               </div>
 
               <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
-                <h1 className="gradient-text text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight pb-2">
+                <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight pb-2">
                   Rajesh
                 </h1>
 
                 <div className="wave-emoji-container">
                   <span
-                    className="wave-emoji text-4xl sm:text-5xl md:text-6xl inline-block transform-gpu"
+                    className="wave-emoji text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block transform-gpu"
                     role="img"
                     aria-label="Waving hand"
                   >
@@ -132,9 +132,9 @@ const Hero: React.FC = () => {
 
             {/* Typing Animation */}
             <div className="hero-subtitle mb-8 space-y-6">
-              <div className="text-xl sm:text-2xl md:text-3xl text-text-muted min-h-[3rem] flex items-center justify-center lg:justify-start">
-                <span className="mr-3">I'm a</span>
-                <div className="typing-container relative inline-flex items-center min-w-[250px] justify-start">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-text-muted min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center lg:justify-start flex-wrap sm:flex-nowrap">
+                <span className="mr-2 sm:mr-3">I'm a</span>
+                <div className="typing-container relative inline-flex items-center min-w-[180px] sm:min-w-[250px] justify-start">
                   <span className="text-primary font-semibold font-fira tracking-wide">
                     {displayText}
                   </span>
@@ -145,18 +145,18 @@ const Hero: React.FC = () => {
               </div>
 
               <div className="max-w-2xl mx-auto lg:mx-0">
-                <p className="text-lg sm:text-xl text-text-muted leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-text-muted leading-relaxed">
                   Passionate about creating exceptional digital experiences through clean code, innovative design, and cutting-edge technology.
                 </p>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-10">
+            <div className="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center mb-8 sm:mb-10">
               <a
                 href={resumePdf}
                 download="Rajesh_K_Resume.pdf"
-                className="group relative px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold text-dark text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-hover w-full sm:w-auto min-w-[180px] overflow-hidden text-center inline-block"
+                className="group relative px-6 sm:px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold text-dark text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-hover w-full sm:w-auto min-w-[160px] sm:min-w-[180px] overflow-hidden text-center inline-block"
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <Download className="inline-block w-5 h-5 mr-2 group-hover:animate-bounce" />
@@ -164,13 +164,13 @@ const Hero: React.FC = () => {
                 </span>
               </a>
 
-              <a href="#projects" className="group px-8 py-3 bg-text-main text-dark rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 cursor-hover w-full sm:w-auto min-w-[180px] relative overflow-hidden shadow-[0_0_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-primary),0.5)] border-2 border-transparent text-center flex items-center justify-center">
+              <a href="#projects" className="group px-6 sm:px-8 py-3 bg-text-main text-dark rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 cursor-hover w-full sm:w-auto min-w-[160px] sm:min-w-[180px] relative overflow-hidden shadow-[0_0_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-primary),0.5)] border-2 border-transparent text-center flex items-center justify-center">
                 <span className="relative z-10 text-dark dark:text-dark">View My Work</span>
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="flex justify-center lg:justify-start space-x-6">
+            <div className="flex justify-center lg:justify-start space-x-4 sm:space-x-6">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -188,7 +188,7 @@ const Hero: React.FC = () => {
 
           {/* Right Column: Image */}
           <div className="hero-image order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] animate-float">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[500px] lg:h-[500px] animate-float">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
               <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-primary/20 hover:border-primary/40 transition-all duration-500 shadow-2xl">
                 <img

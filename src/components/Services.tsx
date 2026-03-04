@@ -79,26 +79,26 @@ const Services: React.FC = () => {
     }, []);
 
     return (
-        <section id="services" className="services-section py-20 bg-dark relative overflow-hidden">
+        <section id="services" className="services-section py-12 sm:py-16 md:py-20 bg-dark relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
+                <div className="text-center mb-10 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                         My <span className="gradient-text">Services</span>
                     </h2>
-                    <p className="text-text-muted text-lg max-w-2xl mx-auto">
+                    <p className="text-text-muted text-base sm:text-lg max-w-2xl mx-auto">
                         Comprehensive solutions tailored to your digital needs
                     </p>
                 </div>
 
-                <div className="services-grid grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-16">
+                <div className="services-grid grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto mb-10 sm:mb-16">
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className={`service-card group p-8 bg-dark-light rounded-2xl border border-dark-lighter transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${service.borderColor} relative overflow-hidden`}
+                            className={`service-card group p-5 sm:p-8 bg-dark-light rounded-2xl border border-dark-lighter transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${service.borderColor} relative overflow-hidden`}
                         >
                             {/* Hover Gradient Background */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -132,12 +132,12 @@ const Services: React.FC = () => {
                 </div>
 
                 {/* CTA Box */}
-                <div className="cta-box max-w-4xl mx-auto bg-gradient-to-r from-dark-light to-dark p-8 md:p-10 rounded-3xl border border-primary/20 shadow-[0_0_40px_rgba(0,0,0,0.2)] relative overflow-hidden">
+                <div className="cta-box max-w-4xl mx-auto bg-gradient-to-r from-dark-light to-dark p-5 sm:p-8 md:p-10 rounded-3xl border border-primary/20 shadow-[0_0_40px_rgba(0,0,0,0.2)] relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-8 text-center md:text-left">
                         <div>
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                            <h3 className="text-2xl md:text-3xl font-bold text-text-main mb-2">
                                 Need a bundled solution?
                             </h3>
                             <p className="text-text-muted text-lg">

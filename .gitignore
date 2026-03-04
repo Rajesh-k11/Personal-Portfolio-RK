@@ -118,3 +118,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Deployment/setup docs (not needed in repo)
+DEPLOYMENT_CHECKLIST.md
+EMAILJS_SETUP.md
+EMAIL_TEMPLATE_GUIDE.md
+NETLIFY_DEPLOYMENT.md
+.env.example

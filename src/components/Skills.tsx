@@ -118,30 +118,30 @@ const Skills: React.FC = () => {
   }, []);
 
   return (
-    <section id="skills" className="skills-section py-20 bg-dark relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    <section id="skills" className="skills-section py-12 sm:py-16 md:py-20 bg-dark relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-text-muted text-base sm:text-lg max-w-2xl mx-auto">
             Technologies, tools, and AI workflows I leverage
           </p>
         </div>
 
-        <div className="skills-grid grid md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-20">
+        <div className="skills-grid grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 max-w-7xl mx-auto mb-12 sm:mb-20">
           {skillCategories.map((category, index) => (
-            <div key={index} className="skill-category bg-dark-light rounded-2xl p-8 border border-dark-lighter hover:border-primary/30 transition-all duration-300">
-              <div className="flex items-center gap-4 mb-8">
+            <div key={index} className="skill-category bg-dark-light rounded-2xl p-5 sm:p-8 border border-dark-lighter hover:border-primary/30 transition-all duration-300">
+              <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
                 <div className="p-3 bg-dark rounded-xl text-primary">
                   <category.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-text-main">
+                <h3 className="text-xl sm:text-2xl font-bold text-text-main">
                   {category.title}
                 </h3>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="bg-dark p-4 rounded-xl border border-dark-lighter hover:border-primary/30 transition-all duration-300 group hover:-translate-y-1">
                     <div className="flex items-start gap-3">
@@ -165,17 +165,17 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Technical Strengths & AI Productivity */}
-        <div className="meta-skills-container max-w-7xl mx-auto mb-20">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="meta-skills-container max-w-7xl mx-auto mb-12 sm:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
             {metaSkills.map((category, index) => (
-              <div key={index} className="meta-skill-card bg-gradient-to-br from-dark-light to-dark p-8 rounded-2xl border border-primary/20 relative overflow-hidden group">
+              <div key={index} className="meta-skill-card bg-gradient-to-br from-dark-light to-dark p-5 sm:p-8 rounded-2xl border border-primary/20 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500"></div>
 
-                <div className="flex items-center gap-4 mb-8 relative z-10">
+                <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8 relative z-10">
                   <div className="p-3 bg-dark rounded-xl text-secondary">
                     <category.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-text-main">
+                  <h3 className="text-xl sm:text-2xl font-bold text-text-main">
                     {category.title}
                   </h3>
                 </div>
@@ -202,10 +202,10 @@ const Skills: React.FC = () => {
 
         {/* Familiar With Section */}
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-8 text-text-main">
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-text-main">
             Also Familiar With
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {[
               'Python', 'Java', 'React', 'Firebase',
               'Supabase', 'Nginx',
