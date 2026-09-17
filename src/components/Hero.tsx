@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { ChevronDown, Download, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { ChevronDown, Download, Github, Linkedin, Twitter, Mail, Code2 } from 'lucide-react';
 import { gsap } from 'gsap';
 import resumePdf from '../assets/Resume - Rajesh.pdf';
 import profileImage from '../assets/profile 1.png';
 
 const Hero: React.FC = () => {
+  const imageCardRef = useRef<HTMLDivElement>(null);
   const [displayText, setDisplayText] = useState('');
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -12,16 +13,15 @@ const Hero: React.FC = () => {
 
   const roles = [
     'Full-Stack Developer',
-    'Lead Visual Designer',
+    'Visual Designer',
     'UI/UX Specialist',
     'Brand Identity Designer',
-    'Design Technologist',
     'GDG OnCampus Organizer'
   ];
 
   useEffect(() => {
     // Hero animations
-    const tl = gsap.timeline({ delay: 2.5 });
+    const tl = gsap.timeline({ delay: 0.2 });
 
     tl.fromTo('.hero-title',
       { y: 100, opacity: 0 },
@@ -134,6 +134,37 @@ const Hero: React.FC = () => {
     { icon: Mail, href: 'mailto:rajeshkanthasamy11@gmail.com', label: 'Email' },
   ];
 
+  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = imageCardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -7;
+    const rotateY = ((x - centerX) / centerX) * 7;
+
+    gsap.to(card, {
+      rotateX,
+      rotateY,
+      duration: 0.35,
+      ease: 'power2.out',
+      transformPerspective: 1000,
+    });
+  };
+
+  const handleImageMouseLeave = () => {
+    const card = imageCardRef.current;
+    if (!card) return;
+    gsap.to(card, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 0.7,
+      ease: 'elastic.out(1.1, 0.4)',
+    });
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark">
       {/* Background gradient */}
@@ -141,7 +172,7 @@ const Hero: React.FC = () => {
 
       {/* Main Hero Content */}
       <div className="container mx-auto px-4 sm:px-6 z-10 flex items-center justify-center min-h-screen pt-24 sm:pt-28 md:pt-20">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center w-full max-w-7xl mx-auto pb-12 sm:pb-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center w-full max-w-7xl mx-auto pb-12 sm:pb-20">
 
           {/* Left Column: Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
@@ -158,35 +189,25 @@ const Hero: React.FC = () => {
 
                 <div className="wave-emoji-container">
                   <span
-                    className="wave-emoji text-4xl sm:text-5xl md:text-6xl inline-block transform-gpu"
                     role="img"
-                    aria-label="Waving hand"
+                    aria-label="waving hand"
+                    className="wave-emoji inline-block text-4xl sm:text-5xl md:text-6xl"
                   >
                     👋
                   </span>
                 </div>
               </div>
 
-              <div className="pt-2">
-                <p className="text-base sm:text-lg md:text-xl font-medium tracking-wide">
-                  <span className="text-primary font-semibold">Designer by Passion</span>
-                  <span className="text-text-muted mx-2 sm:mx-3">•</span>
-                  <span className="text-secondary font-semibold">Developer by Profession</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Typing Animation */}
-            <div className="hero-subtitle mb-8 space-y-5">
-              <div className="text-lg sm:text-xl md:text-2xl text-text-muted min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center lg:justify-start flex-wrap sm:flex-nowrap">
-                <span className="mr-2 sm:mr-3">I'm a</span>
-                <div className="typing-container relative inline-flex items-center min-w-[180px] sm:min-w-[250px] justify-start">
-                  <span className="text-primary font-semibold font-fira tracking-wide">
+              <div className="hero-subtitle">
+                <div className="text-base sm:text-lg md:text-xl text-text-muted mb-2 font-medium tracking-wide">
+                  Designer by Passion <span className="text-primary/70">•</span> Developer by Profession
+                </div>
+                <div className="text-xl sm:text-2xl md:text-3xl text-text-main font-fira font-semibold">
+                  I am a{' '}
+                  <span className="gradient-text border-b-2 border-primary">
                     {displayText}
                   </span>
-                  <span className="typing-cursor text-primary ml-1 animate-pulse">
-                    |
-                  </span>
+                  <span className="animate-pulse">|</span>
                 </div>
               </div>
 
@@ -234,18 +255,60 @@ const Hero: React.FC = () => {
 
           {/* Right Column: Image */}
           <div className="hero-image order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[500px] lg:h-[500px] animate-float">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
-              <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-primary/20 hover:border-primary/40 transition-all duration-500 shadow-2xl">
-                <img
-                  src={profileImage}
-                  alt="Rajesh K - Designer & Developer"
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
+            <div
+              ref={imageCardRef}
+              onMouseMove={handleImageMouseMove}
+              onMouseLeave={handleImageMouseLeave}
+              className="relative w-[270px] h-[360px] sm:w-[330px] sm:h-[440px] md:w-[360px] md:h-[480px] lg:w-[410px] lg:h-[545px] xl:w-[440px] xl:h-[585px] transition-transform duration-300 will-change-transform cursor-hover"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              {/* Dynamic Atmospheric Glow Aura */}
+              <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-tr from-primary/30 via-secondary/25 to-emerald-400/20 rounded-[44px] sm:rounded-[52px] blur-3xl opacity-70 animate-pulse pointer-events-none"></div>
+
+              {/* Luxury Studio Frame */}
+              <div className="relative w-full h-full rounded-[32px] sm:rounded-[40px] overflow-hidden p-1.5 sm:p-2 bg-gradient-to-b from-white/20 via-white/5 to-white/10 border border-white/15 shadow-2xl backdrop-blur-md group">
+                <div className="relative w-full h-full rounded-[26px] sm:rounded-[34px] overflow-hidden bg-neutral-950">
+                  <img
+                    src={profileImage}
+                    alt="Rajesh K - Designer & Developer"
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-700 ease-out"
+                  />
+
+                  {/* Subtle Cinematic Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                </div>
               </div>
-              {/* Floating tech icons decoration could go here if needed */}
+
+              {/* Floating Badge 1: Lead Designer (Top Right) */}
+              <div
+                className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 bg-dark/90 backdrop-blur-md border border-white/15 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5 pointer-events-none transform translate-z-10 animate-float"
+                style={{ animationDelay: '0.5s' }}
+              >
+                <div className="relative flex items-center justify-center w-2.5 h-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping absolute"></span>
+                  <span className="w-2 h-2 rounded-full bg-primary relative"></span>
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] sm:text-xs font-semibold text-text-main leading-tight">Lead Designer</span>
+                  <span className="text-[9px] sm:text-[10px] text-text-muted">NexusCon'26 Brand</span>
+                </div>
+              </div>
+
+              {/* Floating Badge 2: Full-Stack Dev (Bottom Left) */}
+              <div
+                className="absolute -bottom-3 -left-2 sm:-bottom-4 sm:-left-4 bg-dark/90 backdrop-blur-md border border-white/15 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5 pointer-events-none transform translate-z-10 animate-float"
+                style={{ animationDelay: '1.8s' }}
+              >
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-secondary/30 to-primary/30 flex items-center justify-center text-primary shrink-0">
+                  <Code2 size={16} />
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] sm:text-xs font-semibold text-text-main leading-tight">Full-Stack Dev</span>
+                  <span className="text-[9px] sm:text-[10px] text-text-muted">Node.js · React · AI</span>
+                </div>
+              </div>
             </div>
           </div>
 
