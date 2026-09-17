@@ -60,7 +60,21 @@ const Projects: React.FC = () => {
     }
   ];
 
-  const allProjects = [...majorProjects, ...webProjects, ...personalProjects];
+  const designCaseStudies = [
+    {
+      id: 5,
+      title: "NexusCon'26 – Visual Identity & Experience Design",
+      category: 'Design Case Study',
+      description: "Complete visual identity and experiential brand system for NexusCon'26, one of India's premier community-driven tech conferences. Crafted social marketing creatives, launch posters, keynote stage visuals, attendee ID cards, and real-time live event displays in Figma.",
+      image: 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['Figma', 'Visual Identity', 'Event Branding', 'Stage Graphics', 'Design Systems'],
+      liveUrl: 'https://www.linkedin.com/in/rajeshk1102/',
+      githubUrl: 'https://github.com/Rajesh-k11',
+      featured: true
+    }
+  ];
+
+  const allProjects = [...designCaseStudies, ...majorProjects, ...webProjects, ...personalProjects];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -91,6 +105,8 @@ const Projects: React.FC = () => {
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         {project.featured && (
@@ -165,6 +181,18 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
+          {/* Design & Visual Identity Case Studies */}
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-text-main mb-6 sm:mb-8 border-l-4 border-pink-500 pl-4">
+              Design & Visual Identity Case Studies
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-8">
+              {designCaseStudies.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
+
           {/* Major Projects */}
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-text-main mb-6 sm:mb-8 border-l-4 border-primary pl-4">
@@ -216,6 +244,8 @@ const Projects: React.FC = () => {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-48 sm:h-64 object-cover"
                       />
                       <button

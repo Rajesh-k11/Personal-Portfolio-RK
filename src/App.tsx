@@ -3,7 +3,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import CraftTicker from './components/CraftTicker';
 import About from './components/About';
+import Experience from './components/Experience';
 import Services from './components/Services';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -24,6 +26,7 @@ function App() {
   useEffect(() => {
     // Set initial theme
     document.body.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
@@ -67,7 +70,9 @@ function App() {
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
+        <CraftTicker />
         <About />
+        <Experience />
         <Services />
         <Skills />
         <Projects />

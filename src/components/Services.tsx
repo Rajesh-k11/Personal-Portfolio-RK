@@ -1,41 +1,59 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Laptop, Palette, TrendingUp, Users, ArrowRight } from 'lucide-react';
+import { Palette, Sparkles, Layout, Code2, Layers, Users, ArrowRight } from 'lucide-react';
 
 const services = [
     {
-        icon: Laptop,
-        title: 'Web Engineering',
-        description: 'Scalable full-stack applications with AI integration and UI/UX focus.',
-        tags: ['React/Node.js', 'AI-Assisted Dev', 'SaaS'],
-        color: 'text-blue-400',
-        borderColor: 'group-hover:border-blue-400/50',
-        bgGradient: 'group-hover:from-blue-400/10'
+        icon: Palette,
+        title: 'UI/UX Design',
+        description: 'Intuitive, human-centered interfaces from wireframing and user journey mapping to high-fidelity clickable prototypes.',
+        tags: ['Figma', 'Interactive Prototypes', 'User Research', 'Micro-Interactions'],
+        color: 'text-pink-400',
+        borderColor: 'group-hover:border-pink-400/50',
+        bgGradient: 'group-hover:from-pink-400/10'
     },
     {
-        icon: Palette,
-        title: 'Brand Identity',
-        description: 'Visual storytelling from logos to physical product packaging.',
-        tags: ['Logo Design', 'Business Cards', 'Packaging'],
+        icon: Sparkles,
+        title: 'Brand & Event Identity',
+        description: 'End-to-end visual identity for conferences, product launches, and brands — social creatives, stage graphics, and print assets.',
+        tags: ['NexusCon Branding', 'Event Creatives', 'Stage Screens', 'Launch Kits'],
         color: 'text-purple-400',
         borderColor: 'group-hover:border-purple-400/50',
         bgGradient: 'group-hover:from-purple-400/10'
     },
     {
-        icon: TrendingUp,
-        title: 'Digital Growth',
-        description: 'Data-driven strategies to boost visibility and engagement.',
-        tags: ['SEO', 'Digital Marketing', 'Analytics'],
+        icon: Layout,
+        title: 'Frontend Engineering',
+        description: 'Modern, blazing-fast web applications with clean TypeScript code, responsive layouts, and buttery-smooth GSAP animations.',
+        tags: ['React', 'TypeScript', 'Tailwind CSS', 'GSAP Animations'],
+        color: 'text-blue-400',
+        borderColor: 'group-hover:border-blue-400/50',
+        bgGradient: 'group-hover:from-blue-400/10'
+    },
+    {
+        icon: Code2,
+        title: 'Full Stack & Backend',
+        description: 'Scalable backend architectures in Node.js/Express, RESTful API design, voice automation workflows, and MongoDB data layers.',
+        tags: ['Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'Voice Automation'],
         color: 'text-green-400',
         borderColor: 'group-hover:border-green-400/50',
         bgGradient: 'group-hover:from-green-400/10'
     },
     {
+        icon: Layers,
+        title: 'Design Systems',
+        description: 'Bridging design and code with unified design tokens, atomic component libraries, and strict visual consistency across products.',
+        tags: ['Design Tokens', 'Reusable Components', 'UI Kits', 'Figma-to-Code'],
+        color: 'text-amber-400',
+        borderColor: 'group-hover:border-amber-400/50',
+        bgGradient: 'group-hover:from-amber-400/10'
+    },
+    {
         icon: Users,
-        title: 'Community & Events',
-        description: 'End-to-end management for hackathons, tech fests, and workshops.',
-        tags: ['DevFest', 'Speaker Outreach', 'Hackathons'],
+        title: 'Event & Community Production',
+        description: 'Full-spectrum event support including stage display coordination, live real-time visual management, and developer community building.',
+        tags: ['GDGoC', 'DevFest', 'Live Presentation', 'Tech Communities'],
         color: 'text-orange-400',
         borderColor: 'group-hover:border-orange-400/50',
         bgGradient: 'group-hover:from-orange-400/10'
@@ -94,7 +112,7 @@ const Services: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="services-grid grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto mb-10 sm:mb-16">
+                <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto mb-10 sm:mb-16">
                     {services.map((service, index) => (
                         <div
                             key={index}

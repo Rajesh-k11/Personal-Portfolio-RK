@@ -12,12 +12,11 @@ const Hero: React.FC = () => {
 
   const roles = [
     'Full-Stack Developer',
-    'GDG OnCampus Organizer',
-    'Freelancer',
-    'Community Builder',
-    'AI Explorer',
-    'Tech Educator',
-    'Student Mentor'
+    'Lead Visual Designer',
+    'UI/UX Specialist',
+    'Brand Identity Designer',
+    'Design Technologist',
+    'GDG OnCampus Organizer'
   ];
 
   useEffect(() => {
@@ -58,6 +57,45 @@ const Hero: React.FC = () => {
       ease: 'power2.inOut',
       delay: 5
     });
+
+    // Subtle magnetic button pull
+    const magneticBtns = document.querySelectorAll<HTMLElement>('.magnetic-btn');
+    const cleanups: (() => void)[] = [];
+
+    magneticBtns.forEach((btn) => {
+      const handleMove = (e: MouseEvent) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        gsap.to(btn, {
+          x: x * 0.28,
+          y: y * 0.28,
+          duration: 0.25,
+          ease: 'power2.out',
+        });
+      };
+
+      const handleLeave = () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: 'elastic.out(1.1, 0.4)',
+        });
+      };
+
+      btn.addEventListener('mousemove', handleMove);
+      btn.addEventListener('mouseleave', handleLeave);
+
+      cleanups.push(() => {
+        btn.removeEventListener('mousemove', handleMove);
+        btn.removeEventListener('mouseleave', handleLeave);
+      });
+    });
+
+    return () => {
+      cleanups.forEach((c) => c());
+    };
   }, []);
 
   // Typing effect
@@ -108,19 +146,19 @@ const Hero: React.FC = () => {
           {/* Left Column: Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Title Section */}
-            <div className="hero-title mb-8 space-y-4">
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-text-muted">
+            <div className="hero-title mb-6 space-y-2">
+              <div className="text-lg sm:text-xl md:text-2xl font-light text-text-muted">
                 Hi, I'm
               </div>
 
-              <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
-                <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight pb-2">
+              <div className="flex items-center justify-center lg:justify-start gap-4">
+                <h1 className="gradient-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight pb-1">
                   Rajesh
                 </h1>
 
                 <div className="wave-emoji-container">
                   <span
-                    className="wave-emoji text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block transform-gpu"
+                    className="wave-emoji text-4xl sm:text-5xl md:text-6xl inline-block transform-gpu"
                     role="img"
                     aria-label="Waving hand"
                   >
@@ -128,11 +166,19 @@ const Hero: React.FC = () => {
                   </span>
                 </div>
               </div>
+
+              <div className="pt-2">
+                <p className="text-base sm:text-lg md:text-xl font-medium tracking-wide">
+                  <span className="text-primary font-semibold">Designer by Passion</span>
+                  <span className="text-text-muted mx-2 sm:mx-3">•</span>
+                  <span className="text-secondary font-semibold">Developer by Profession</span>
+                </p>
+              </div>
             </div>
 
             {/* Typing Animation */}
-            <div className="hero-subtitle mb-8 space-y-6">
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-text-muted min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center lg:justify-start flex-wrap sm:flex-nowrap">
+            <div className="hero-subtitle mb-8 space-y-5">
+              <div className="text-lg sm:text-xl md:text-2xl text-text-muted min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center lg:justify-start flex-wrap sm:flex-nowrap">
                 <span className="mr-2 sm:mr-3">I'm a</span>
                 <div className="typing-container relative inline-flex items-center min-w-[180px] sm:min-w-[250px] justify-start">
                   <span className="text-primary font-semibold font-fira tracking-wide">
@@ -145,8 +191,8 @@ const Hero: React.FC = () => {
               </div>
 
               <div className="max-w-2xl mx-auto lg:mx-0">
-                <p className="text-base sm:text-lg md:text-xl text-text-muted leading-relaxed">
-                  Passionate about creating exceptional digital experiences through clean code, innovative design, and cutting-edge technology.
+                <p className="text-base sm:text-lg text-text-muted leading-relaxed">
+                  I design experiences that people remember and build products that people rely on. With a passion for visual design and a foundation in full-stack development, I bridge the gap between creativity and technology.
                 </p>
               </div>
             </div>
@@ -156,7 +202,7 @@ const Hero: React.FC = () => {
               <a
                 href={resumePdf}
                 download="Rajesh_K_Resume.pdf"
-                className="group relative px-6 sm:px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold text-dark text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-hover w-full sm:w-auto min-w-[160px] sm:min-w-[180px] overflow-hidden text-center inline-block"
+                className="magnetic-btn group relative px-6 sm:px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold text-dark text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-hover w-full sm:w-auto min-w-[160px] sm:min-w-[180px] overflow-hidden text-center inline-block will-change-transform"
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <Download className="inline-block w-5 h-5 mr-2 group-hover:animate-bounce" />
@@ -164,7 +210,7 @@ const Hero: React.FC = () => {
                 </span>
               </a>
 
-              <a href="#projects" className="group px-6 sm:px-8 py-3 bg-text-main text-dark rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 cursor-hover w-full sm:w-auto min-w-[160px] sm:min-w-[180px] relative overflow-hidden shadow-[0_0_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-primary),0.5)] border-2 border-transparent text-center flex items-center justify-center">
+              <a href="#projects" className="magnetic-btn group px-6 sm:px-8 py-3 bg-text-main text-dark rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 cursor-hover w-full sm:w-auto min-w-[160px] sm:min-w-[180px] relative overflow-hidden shadow-[0_0_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-primary),0.5)] border-2 border-transparent text-center flex items-center justify-center will-change-transform">
                 <span className="relative z-10 text-dark dark:text-dark">View My Work</span>
               </a>
             </div>
@@ -177,7 +223,7 @@ const Hero: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-social group p-3 rounded-full border-2 border-text-muted text-text-muted hover:border-primary hover:text-primary transition-all duration-300 hover:scale-110 cursor-hover relative overflow-hidden"
+                  className="magnetic-btn hero-social group p-3 rounded-full border-2 border-text-muted text-text-muted hover:border-primary hover:text-primary transition-all duration-300 hover:scale-110 cursor-hover relative overflow-hidden will-change-transform"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5 group-hover:animate-pulse relative z-10" />
@@ -193,7 +239,9 @@ const Hero: React.FC = () => {
               <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-primary/20 hover:border-primary/40 transition-all duration-500 shadow-2xl">
                 <img
                   src={profileImage}
-                  alt="Rajesh K"
+                  alt="Rajesh K - Designer & Developer"
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>

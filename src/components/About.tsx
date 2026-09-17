@@ -143,7 +143,9 @@ const About: React.FC = () => {
               <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[480px] lg:h-[580px] mx-auto rounded-2xl overflow-hidden border-4 border-primary/20 hover:border-primary/40 transition-all duration-300 relative shadow-2xl">
                 <img
                   src={profilePhoto}
-                  alt="Rajesh K"
+                  alt="Rajesh K - Designer & Developer"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -152,26 +154,58 @@ const About: React.FC = () => {
 
           {/* About Content */}
           <div className="about-content">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-primary">Hello! I'm Rajesh</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-primary">
+              Hello! I'm Rajesh
+            </h3>
+
             <div className="space-y-3 sm:space-y-4 text-text-muted leading-relaxed text-sm sm:text-base">
               <p>
-                I'm Rajesh K, an Information Technology undergraduate with a strong interest in software development, frontend engineering, and building products that solve real problems. I enjoy working across the full development flow — from designing user-friendly interfaces to implementing functional, scalable solutions.
+                I operate at the intersection of aesthetic design and robust software engineering. I believe exceptional products shouldn't just function flawlessly under the hood — they should also look captivating and feel intuitive in the hands of users.
               </p>
               <p>
-                I have hands-on experience through internships and academic projects, where I've built responsive websites, AI-powered systems, and real-world applications with social impact. My work on projects like Left2Feed reflects my interest in combining technology with meaningful use cases.
-              </p>
-              <p>
-                Beyond development, I actively contribute to the tech community. I was part of the organizing team for DevFest Salem, where I helped streamline workflows and contributed to increasing event-related sales from 0 to 750 registrations through better coordination and execution. I'm also an organizer at Google Developer Groups On Campus (GDGoC) at Paavai Engineering College, where I help plan and deliver technical sessions and events.
+                Whether shaping the complete visual identity and stage experience for massive technology conferences like <strong>NexusCon'26</strong>, or engineering production-grade voice automation backends at <strong>Desible.ai</strong>, I bring a unified vision from the first wireframe to the final deployment.
               </p>
             </div>
 
+            {/* Design & Development Split Cards */}
+            <div className="grid sm:grid-cols-2 gap-4 mt-6">
+              <div className="p-4 rounded-xl bg-dark/70 border border-primary/20 hover:border-primary/50 transition-all duration-300 group">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="p-2 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+                    🎨
+                  </span>
+                  <div>
+                    <h4 className="font-semibold text-text-main text-sm sm:text-base">Designer by Passion</h4>
+                    <span className="text-[11px] text-primary font-mono">Visuals · UI/UX · Branding</span>
+                  </div>
+                </div>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Brand identities, stage visuals, marketing creatives, and design systems built with precision in Figma.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-dark/70 border border-secondary/20 hover:border-secondary/50 transition-all duration-300 group">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="p-2 rounded-lg bg-secondary/10 text-secondary group-hover:scale-110 transition-transform">
+                    💻
+                  </span>
+                  <div>
+                    <h4 className="font-semibold text-text-main text-sm sm:text-base">Developer by Profession</h4>
+                    <span className="text-[11px] text-secondary font-mono">Full Stack · APIs · Voice AI</span>
+                  </div>
+                </div>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Scalable Node.js & Express architectures, MongoDB, RESTful APIs, and responsive React frontend systems.
+                </p>
+              </div>
+            </div>
+
             {/* Highlights */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-5">
               {highlights.map((item, index) => (
-                <div key={index} className="p-3 sm:p-4 bg-dark rounded-lg border border-dark-lighter hover:border-primary/30 transition-all duration-300 cursor-hover group">
-                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <h4 className="font-semibold text-text-main mb-1 text-sm sm:text-base group-hover:text-primary transition-colors duration-300">{item.title}</h4>
-                  <p className="text-xs sm:text-sm text-text-muted">{item.description}</p>
+                <div key={index} className="p-2.5 sm:p-3 bg-dark/50 rounded-lg border border-dark-lighter hover:border-primary/30 transition-all duration-300 group text-center">
+                  <item.icon className="w-5 h-5 text-primary mb-1 mx-auto group-hover:scale-110 transition-transform duration-300" />
+                  <h5 className="font-medium text-text-main text-xs sm:text-sm group-hover:text-primary transition-colors">{item.title}</h5>
                 </div>
               ))}
             </div>

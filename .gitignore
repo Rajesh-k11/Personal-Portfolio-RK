@@ -125,3 +125,5 @@ EMAILJS_SETUP.md
 EMAIL_TEMPLATE_GUIDE.md
 NETLIFY_DEPLOYMENT.md
 .env.example
+# Local image backups (uncompressed raw assets)
+src/assets_original_backup/

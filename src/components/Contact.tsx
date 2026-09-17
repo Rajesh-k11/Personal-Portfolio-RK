@@ -100,8 +100,8 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Namakkal, Tamil Nadu',
-      link: 'https://maps.google.com'
+      value: 'Chennai, Tamil Nadu',
+      link: 'https://www.google.com/maps/place/Chennai,+Tamil+Nadu'
     }
   ];
 
