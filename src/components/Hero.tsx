@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ChevronDown, Download, Github, Linkedin, Twitter, Mail, Code2 } from 'lucide-react';
+import { ChevronDown, Download, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { gsap } from 'gsap';
 import resumePdf from '../assets/Resume - Rajesh.pdf';
 import profileImage from '../assets/profile 1.png';
@@ -13,9 +13,10 @@ const Hero: React.FC = () => {
 
   const roles = [
     'Full-Stack Developer',
-    'Visual Designer',
+    'Lead Visual Designer',
     'UI/UX Specialist',
     'Brand Identity Designer',
+    'Design Technologist',
     'GDG OnCampus Organizer'
   ];
 
@@ -58,19 +59,21 @@ const Hero: React.FC = () => {
       delay: 5
     });
 
-    // Subtle magnetic button pull
-    const magneticBtns = document.querySelectorAll<HTMLElement>('.magnetic-btn');
+    // Magnetic physics for CTA buttons & social icons
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
     const cleanups: (() => void)[] = [];
 
     magneticBtns.forEach((btn) => {
-      const handleMove = (e: MouseEvent) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - (rect.left + rect.width / 2);
-        const y = e.clientY - (rect.top + rect.height / 2);
+      const handleMove = (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        const rect = (btn as HTMLElement).getBoundingClientRect();
+        const x = mouseEvent.clientX - rect.left - rect.width / 2;
+        const y = mouseEvent.clientY - rect.top - rect.height / 2;
+
         gsap.to(btn, {
-          x: x * 0.28,
-          y: y * 0.28,
-          duration: 0.25,
+          x: x * 0.35,
+          y: y * 0.35,
+          duration: 0.3,
           ease: 'power2.out',
         });
       };
@@ -204,7 +207,7 @@ const Hero: React.FC = () => {
                 </div>
                 <div className="text-xl sm:text-2xl md:text-3xl text-text-main font-fira font-semibold">
                   I am a{' '}
-                  <span className="gradient-text border-b-2 border-primary">
+                  <span className="gradient-text">
                     {displayText}
                   </span>
                   <span className="animate-pulse">|</span>
@@ -278,35 +281,6 @@ const Hero: React.FC = () => {
 
                   {/* Subtle Cinematic Vignette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-40 pointer-events-none"></div>
-                </div>
-              </div>
-
-              {/* Floating Badge 1: Lead Designer (Top Right) */}
-              <div
-                className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 bg-dark/90 backdrop-blur-md border border-white/15 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5 pointer-events-none transform translate-z-10 animate-float"
-                style={{ animationDelay: '0.5s' }}
-              >
-                <div className="relative flex items-center justify-center w-2.5 h-2.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping absolute"></span>
-                  <span className="w-2 h-2 rounded-full bg-primary relative"></span>
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-[10px] sm:text-xs font-semibold text-text-main leading-tight">Lead Designer</span>
-                  <span className="text-[9px] sm:text-[10px] text-text-muted">NexusCon'26 Brand</span>
-                </div>
-              </div>
-
-              {/* Floating Badge 2: Full-Stack Dev (Bottom Left) */}
-              <div
-                className="absolute -bottom-3 -left-2 sm:-bottom-4 sm:-left-4 bg-dark/90 backdrop-blur-md border border-white/15 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5 pointer-events-none transform translate-z-10 animate-float"
-                style={{ animationDelay: '1.8s' }}
-              >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-secondary/30 to-primary/30 flex items-center justify-center text-primary shrink-0">
-                  <Code2 size={16} />
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-[10px] sm:text-xs font-semibold text-text-main leading-tight">Full-Stack Dev</span>
-                  <span className="text-[9px] sm:text-[10px] text-text-muted">Node.js · React · AI</span>
                 </div>
               </div>
             </div>
